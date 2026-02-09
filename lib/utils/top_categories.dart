@@ -7,48 +7,49 @@ class TopCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            categoryButton('TV Shows'),
+            const SizedBox(width: 10),
+            categoryButton('Movies'),
+            const SizedBox(width: 10),
+            categoryButtonWithIcon('Categories'),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget categoryButton(String text) {
+    return MaterialButton(
+      onPressed: () {},
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: const BorderSide(color: Color.fromARGB(255, 159, 157, 157)),
+      ),
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.white, fontSize: 16),
+      ),
+    );
+  }
+
+  Widget categoryButtonWithIcon(String text) {
+    return MaterialButton(
+      onPressed: () {},
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: const BorderSide(color: Color.fromARGB(255, 159, 157, 157)),
+      ),
       child: Row(
         children: [
-          MaterialButton(
-            onPressed: () {},
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-              side: BorderSide(color: const Color.fromARGB(255, 159, 157, 157)),
-            ),
-            child: Text(
-              'TV Shows',
-              style: TextStyle(color: Colors.white, fontSize: 16),
-            ),
+          Text(
+            text,
+            style: const TextStyle(color: Colors.white, fontSize: 16),
           ),
-          SizedBox(width: 10),
-          MaterialButton(
-            onPressed: () {},
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-              side: BorderSide(color: const Color.fromARGB(255, 159, 157, 157)),
-            ),
-            child: Text(
-              'Movies',
-              style: TextStyle(color: Colors.white, fontSize: 16),
-            ),
-          ),
-          SizedBox(width: 10),
-          MaterialButton(
-            onPressed: () {},
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-              side: BorderSide(color: const Color.fromARGB(255, 159, 157, 157)),
-            ),
-            child: Row(
-              children: [
-                Text(
-                  'Caterogries',
-                  style: TextStyle(color: Colors.white, fontSize: 16),
-                ),
-                Icon(Icons.arrow_drop_down, color: Colors.white),
-              ],
-            ),
-          ),
+          const Icon(Icons.arrow_drop_down, color: Colors.white),
         ],
       ),
     );

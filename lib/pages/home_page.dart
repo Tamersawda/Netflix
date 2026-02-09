@@ -84,9 +84,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 10),
-            // Category Buttons
             TopCategories(),
-            // Large Container
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Stack(
@@ -148,19 +146,15 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   TopContainerButtons(),
-                  
-
+                
                 ],
               ),
             ),
             SizedBox(height: 10),
-            // trending movies
             netflixData(future: trendingMovieData, text: 'Trending Movies'),
             SizedBox(height: 10),
-            // Tv shows
             netflixData(future: popularTvShowsData, text: 'Popular Tv Series - Must-Watch For You'),
             SizedBox(height: 10),
-            // trending movies
             netflixData(future: topRatedmoviesData, text: 'Top-Rated Movies'),
             SizedBox(height: 20,)
           ],
