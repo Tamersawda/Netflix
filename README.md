@@ -1,16 +1,60 @@
-# netflix_app
+Netflix Clone – Flutter Application
 
-A new Flutter project.
+Project Overview:
+This project is a Netflix-inspired mobile application developed using Flutter. The app integrates with
+The Movie Database (TMDB) API to fetch real-time movie and TV show data. Users can browse
+trending content, view upcoming movies, search titles, and explore TV series seasons and
+episodes.
 
-## Getting Started
+Core Features:
+    • Now Playing Movies
+    • Trending Movies (Daily)
+    • Upcoming Movies (New & Hot Section)
+    • Top Rated Movies
+    • Popular TV Shows
+    • Movie Search Functionality
+    • Movie Detail Screen with Recommendations
+    • TV Detail Screen with Season Dropdown
+    • Episode Listing per Season
+    • Responsive Netflix-style UI
+    • Bottom Navigation Bar with Tab Controller
+    • TMDB API Integration using Dio
 
-This project is a starting point for a Flutter application.
+Technology Stack:
+    • Flutter (UI Framework)
+    • Dart Programming Language
+    • Dio (HTTP Client for API Calls)
+    • CachedNetworkImage (Optimized Image Loading)
+    • Intl (Date Formatting)
+    • Material & Cupertino Widgets
+    • TMDB REST API
 
-A few resources to get you started if this is your first Flutter project:
+Project Architecture:
+The project follows a structured and modular architecture separating models, services, and UI
+layers. API calls are handled inside a dedicated service class using Dio. Data models parse JSON
+responses from TMDB endpoints. UI components consume parsed models via FutureBuilder.
+API Configuration
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This application uses The Movie Database (TMDB) API. To configure the API access, create an
+account at https://www.themoviedb.org/ and generate a Read Access Token. Add your token inside
+the api_key.dart file.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+How To Run The Project:
+    • Clone the repository from GitHub.
+    • Navigate into the project directory.
+    • Run: flutter pub get
+    • Run: flutter run
+
+Future Improvements:
+    • Trailer integration using YouTube API
+    • Authentication and user profiles
+    • Favorites / My List functionality
+    • State management integration (Bloc / Riverpod)
+    • Pagination support for infinite scrolling
+    • Improved animations and transitions
+    • Multi-search support (Movies + TV)
+
+
+Author: 
+    • Tamer 
+    • Flutter Developer
