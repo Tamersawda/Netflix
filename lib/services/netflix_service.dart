@@ -1,13 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:netflix_app/models/details/movie_recommendations.dart';
 import 'package:netflix_app/models/details/movie_screen_data.dart';
+import 'package:netflix_app/models/details/tv_detail.dart';
 import 'package:netflix_app/models/home/movies_model.dart';
 import 'package:netflix_app/models/home/popular_tv_shows.dart';
 import 'package:netflix_app/models/home/top_ratedmovies.dart';
 import 'package:netflix_app/models/home/trending_movies.dart';
 import 'package:netflix_app/models/home/upcoming_movies.dart';
-import 'package:netflix_app/models/my_netflix/favorite_movies.dart';
-import 'package:netflix_app/models/my_netflix/favorite_tv_shows.dart';
 import 'package:netflix_app/models/search/search_movies.dart';
 import 'package:netflix_app/services/api_key.dart';
 
@@ -49,36 +48,6 @@ class NetflixServices {
     return TopRatedMovies.fromJson(response.data);
   }
 
-  // FAVORITES (MOVIES)
-  Future<FavoriteMovies> fetchFavoriteMovies(int accountId) async {
-    final response = await _dio.get(
-      "/account/$accountId/favorite/movies",
-      queryParameters: {
-        "language": "en-US",
-        "sort_by": "created_at.desc",
-      },
-    );
-
-    if (response.data is! Map<String, dynamic>) {
-      throw Exception("Invalid response: ${response.data}");
-    }
-
-    return FavoriteMovies.fromJson(response.data);
-  }
-
-  // FAVORITES (TV)
-  Future<FavoriteTvShows> fetchFavoriteTvShows(int accountId) async {
-    final response = await _dio.get(
-      "/account/$accountId/favorite/tv",
-      queryParameters: {
-        "language": "en-US",
-        "sort_by": "created_at.desc",
-      },
-    );
-
-    return FavoriteTvShows.fromJson(response.data);
-  }
-
   // TV SHOWS
   Future<PopularTvShows> fetchPopularTvShows() async {
     final response = await _dio.get("/tv/popular");
@@ -89,6 +58,12 @@ class NetflixServices {
   Future<MovieDetailScreenData> fetchMovieDetails(int movieId) async {
     final response = await _dio.get("/movie/$movieId");
     return MovieDetailScreenData.fromJson(response.data);
+  }
+
+  // TV DETAILS
+  Future<TvDetailScreenData> fetchTvDetails(int tvId) async {
+    final response = await _dio.get("/tv/$tvId");
+    return TvDetailScreenData.fromJson(response.data);
   }
 
   // RECOMMENDATIONS
@@ -109,5 +84,13 @@ class NetflixServices {
       },
     );
     return SearchMovies.fromJson(response.data);
+  }
+
+  Future<Map<String, dynamic>> fetchSeasonDetails(
+    int tvId,
+    int seasonNumber,
+  ) async {
+    final response = await _dio.get("/tv/$tvId/season/$seasonNumber");
+    return response.data;
   }
 }

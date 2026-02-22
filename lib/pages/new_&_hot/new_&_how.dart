@@ -103,17 +103,35 @@ class _NewHotState extends State<NewHot> {
                             ),
                           );
                         },
-                        child: ClipRRect(
-                          borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(14),
-                          ),
-                          child: Image.network(
-                            'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-                            height: 290,
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                        child: movie.posterPath == null || movie.posterPath!.isEmpty
+                            ? Container(
+                                height: 290,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.shade800,
+                                  borderRadius: const BorderRadius.vertical(
+                                    top: Radius.circular(14),
+                                  ),
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.image_not_supported,
+                                    color: Colors.grey,
+                                    size: 50,
+                                  ),
+                                ),
+                              )
+                            : ClipRRect(
+                                borderRadius: const BorderRadius.vertical(
+                                  top: Radius.circular(14),
+                                ),
+                                child: Image.network(
+                                  'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+                                  height: 290,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(12),

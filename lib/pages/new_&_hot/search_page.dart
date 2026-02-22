@@ -128,15 +128,26 @@ class _SearchPageState extends State<SearchPage> {
                                       ),
                                       child: Row(
                                         children: [
-                                          ClipRRect(
-                                            borderRadius: BorderRadius.circular(6),
-                                            child: CachedNetworkImage(
-                                              imageUrl:
-                                                  '$IMAGE_URL${topMovie.posterPath}',
-                                              fit: BoxFit.cover,
-                                              width: 150,
-                                            ),
-                                          ),
+                                          topMovie.posterPath == null || topMovie.posterPath!.isEmpty
+                                              ? Container(
+                                                  width: 150,
+                                                  color: Colors.grey.shade800,
+                                                  child: const Center(
+                                                    child: Icon(
+                                                      Icons.image_not_supported,
+                                                      color: Colors.grey,
+                                                    ),
+                                                  ),
+                                                )
+                                              : ClipRRect(
+                                                  borderRadius: BorderRadius.circular(6),
+                                                  child: CachedNetworkImage(
+                                                    imageUrl:
+                                                        '$IMAGE_URL${topMovie.posterPath}',
+                                                    fit: BoxFit.cover,
+                                                    width: 150,
+                                                  ),
+                                                ),
                                           SizedBox(width: 20),
                                           Flexible(fit: FlexFit.loose,
                                             child: Text(
