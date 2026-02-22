@@ -8,7 +8,7 @@ import 'package:netflix_app/models/home/trending_movies.dart';
 import 'package:netflix_app/models/home/upcoming_movies.dart';
 import 'package:netflix_app/pages/details/movie_detail_screen.dart';
 import 'package:netflix_app/pages/details/tv_detail_screen.dart';
-import 'package:netflix_app/pages/new_&_hot/search_page.dart';
+import 'package:netflix_app/pages/search_page.dart';
 import 'package:netflix_app/services/api_key.dart';
 import 'package:netflix_app/services/netflix_service.dart';
 import 'package:netflix_app/utils/top_categories.dart';

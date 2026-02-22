@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:netflix_app/pages/home_page.dart';
-import 'package:netflix_app/pages/new_&_hot/new_&_how.dart';
+import 'package:netflix_app/pages/new_&_how.dart';
 import 'package:netflix_app/pages/my_netflix.dart';
 import 'package:netflix_app/services/api_key.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_app/pages/new_&_hot/search_page.dart';
+import 'package:netflix_app/pages/search_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key, required this.accountId});
